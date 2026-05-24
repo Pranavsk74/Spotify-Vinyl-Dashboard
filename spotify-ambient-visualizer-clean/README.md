@@ -11,7 +11,8 @@ A premium, editorial-style ambient web visualizer that syncs with your live Spot
 - **Responsive Cinematic Grid:** Perfect for large TVs, tablets, or desktop browsers.
 
 ## Screenshots
-*(Insert screenshots of your visualizer here)*
+<img width="1919" height="899" alt="image" src="https://github.com/user-attachments/assets/1e847e8f-4512-4edf-998e-14a9324547fd" />
+
 - Dashboard Light Mode
 - Typography Detail
 - Ambient Room Dark Setup
