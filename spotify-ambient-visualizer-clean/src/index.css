@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-bg-light: #F5F1EC;
+  --color-bg-dark: #EFEAE3;
+  --color-accent-gold: #9B6B43;
+  --color-accent-dark: #8B5E3C;
+  --color-typography: #171717;
+  --color-secondary-text: #6E6A66;
+  
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Outfit", "system-ui", sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", monospace;
+  
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Base custom styles */
+body {
+  background-color: #F5F1EC;
+  color: #171717;
+  font-family: var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Vinyl realistic texture overlay */
+.vinyl-texture {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0.9) 20%,
+    rgba(0, 0, 0, 0.95) 40%,
+    rgba(10, 10, 10, 0.98) 60%,
+    rgba(0, 0, 0, 0.99) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.vinyl-grooves {
+  background-image: repeating-radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.45;
+}
+
+.vinyl-sheen {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 10%,
+    transparent 20%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.08) 90%,
+    transparent 100%
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Soft ambient lighting glow */
+.ambient-glow {
+  filter: blur(140px);
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  transition: all 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 94, 60, 0.2);
+  border-radius: 9px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 94, 60, 0.4);
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+.animate-drifting {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Dynamic subtle scroll reveal for ambient text */
+.ambient-text-scroller {
+  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
